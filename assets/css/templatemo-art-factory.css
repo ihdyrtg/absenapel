@@ -607,8 +607,8 @@ header
 
 @media (max-width: 1200px) {
   .header-area .main-nav .nav li {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 120px;
+    padding-right: 120px;
   }
   .header-area .main-nav:before {
     display: none;

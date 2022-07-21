@@ -67,13 +67,11 @@
                                         <table class="table table-striped table-earning">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>NIP</th>
+                                                <th>No</th>                                                
                                                 <th>Nama</th>
                                                 <th>Keterangan</th>
                                                 <th>Alasan</th>
                                                 <th>Tanggal</th>
-                                                <th>Jam</th>
                                                 <th>Bukti</th>
                                                 <th>aksi</th>
                                                

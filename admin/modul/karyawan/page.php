@@ -12,16 +12,16 @@ if (isset($_POST['hapus'])) {
 }
 
 
- ?>
+?>
 <div class="main-content">
-	<div class="section__content section__content--p30">
-		
-	</div>
-	<div class="content-wrapper">
-	<div class="content-header">
-		 <div class="row mb-2">
+    <div class="section__content section__content--p30">
+
+	  </div>
+	  <div class="content-wrapper">
+	  <div class="content-header">
+		    <div class="row mb-2">
           <div class="col-sm-6">
-           <h3 class="col-sm-6">Data Pegawai</h3>
+          <h3 class="col-sm-6">Data Pegawai</h3>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -29,8 +29,8 @@ if (isset($_POST['hapus'])) {
               <li class="breadcrumb-item active">Pegawai</li>
             </ol>
           </div><!-- /.col -->
-        </div>
-	</div>
+    </div>
+</div>
 
 
 	<!-- Main Content -->
@@ -48,17 +48,17 @@ if (isset($_POST['hapus'])) {
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah data Pegawai</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pegawai</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
     <div class="modal-body">
       <form action="" method="POST" enctype="multipart/form-data">
-      	<div class="form-group">
+      	<!-- <div class="form-group">
           <label>NIP</label>
           <input type="text" class="form-control" name="nip">
-        </div>
+        </div> -->
         <div class="form-group">
           <label>Username</label>
           <input type="text" class="form-control" name="username">
@@ -73,7 +73,7 @@ if (isset($_POST['hapus'])) {
         </div>
          <div class="form-group">
           <label>Divisi</label>
-          <input type="text" class="form-control" name="tempat_lahir">
+          <input type="text" class="form-control" name="divisi">
         </div>
            <!-- <div class="form-group">
           <label>Tanggal Lahir</label>
@@ -131,7 +131,7 @@ if (isset($_POST['hapus'])) {
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>NIP</th>
+                                                <!-- <th>NIP</th> -->
                                                 <th>Nama</th>
                                                 <th>Divisi</th>
                                                 <!-- <th>Tanggal Lahir</th>                                                 -->

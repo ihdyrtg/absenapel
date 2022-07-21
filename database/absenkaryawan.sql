@@ -88,7 +88,7 @@ CREATE TABLE `tb_karyawan` (
   `username` text NOT NULL,
   `password` text NOT NULL,
   `nama` text NOT NULL,
-  `tempat_lahir` text NOT NULL,
+  `divsi` text NOT NULL,
   `tanggal_lahir` text NOT NULL,
   `alamat` text NOT NULL,
   `kontak` text NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE `tb_karyawan` (
 -- Dumping data for table `tb_karyawan`
 --
 
-INSERT INTO `tb_karyawan` (`id`, `nip`, `username`, `password`, `nama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `kontak`, `foto`) VALUES
+INSERT INTO `tb_karyawan` (`id`, `nip`, `username`, `password`, `nama`, `divisi`, `tanggal_lahir`, `alamat`, `kontak`, `foto`) VALUES
 (33, '1213063001193000', 'adi', 'c46335eb267e2e1cde5b017acb4cd799', 'Adi Firmansyah, S.Pd', 'Sirkulasi', '', '', '081367643207', '178-adi.jpg'),
 (34, '1277050208870003', 'aflah', '39f1b4512436bfdb2215a65e4f40f0db', 'Aflah Indra Pulungan', 'Administrasi', '', '', '082366088911', '590-aflah.png'),
 (35, '1272034503940002', 'Diva', '72de20c106a52f0aaf21bd650af81bd2', 'Diva Rahmadani Damanik, S.Sos', 'Pengolahan', '', '', '081230135030', ''),

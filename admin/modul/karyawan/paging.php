@@ -33,15 +33,15 @@ foreach ($karyawan as $pro):
 
 <tr>
                               <td><?= $i++;  ?></td>
-                              <td><?=  $pro['nip'];?></td>
+                              
                               <td><?=  $pro['nama'];?></td>                              
-                              <td><?=  $pro['tempat_lahir'];?></td>                              
+                              <td><?=  $pro['divisi'];?></td>                              
                                <td><?= $pro['kontak'];?></td>
 
                               <td><?php 
 
                               if ($pro['foto'] != '') {
-                                echo '<img src="img/karyawan/'.$pro['foto'].'" width="250">';
+                                echo '<img src="../admin/img/karyawan/'.$pro['foto'].'" width="150">';
                               }else{
                                 echo '<img src="img/user_logo.png" width="250">';
                               }
@@ -63,12 +63,11 @@ foreach ($karyawan as $pro):
                                   <div class="modal-body">
                                    <form action="" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="id" value="<?=$pro['id'];?>" hidden>
-                                     <label>NIP : </label>
-                                     <b><?=$pro['nip'];?></b><br>
+                                     
                                      <label>Nama : </label>
                                      <b><?=$pro['nama'];?></b><br>                                     
                                      <label>Divisi : </label>
-                                     <b><?=$pro['tempat_lahir'];?></b><br>                                     
+                                     <b><?=$pro['divisi'];?></b><br>                                     
                                      <label>Kontak : </label>
                                      <b><?=$pro['kontak'];?></b><br>
                                      <label>Foto : </label>

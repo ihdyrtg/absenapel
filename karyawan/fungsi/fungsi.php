@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-$koneksi = mysqli_connect('localhost','root','','absenkaryawan');
+$koneksi = mysqli_connect('localhost', 'root', '', 'absenkaryawan');
 
 // --------------------------------------------ADMIN SECTION-----------------------------------------------------------------------------
 function panggil_karyawan()
@@ -35,22 +35,20 @@ function simpan_admin()
 	$kontak = $_POST['kontak'];
 	$foto = $_FILES['foto']['name'];
 
-	if ($foto!= "") {
-		$allowed_ext = array('png','jpg');
+	if ($foto != "") {
+		$allowed_ext = array('png', 'jpg');
 		$x = explode(".", $foto);
 		$ext = strtolower(end($x));
 		$file_tmp = $_FILES['foto']['tmp_name'];
-		$angka_acak = rand(1,999);
-		$nama_file_baru = $angka_acak.'-'.$foto;
-		if (in_array($ext, $allowed_ext)===true) {
-			move_uploaded_file($file_tmp, 'img/'.$nama_file_baru);
+		$angka_acak = rand(1, 999);
+		$nama_file_baru = $angka_acak . '-' . $foto;
+		if (in_array($ext, $allowed_ext) === true) {
+			move_uploaded_file($file_tmp, 'img/' . $nama_file_baru);
 			$res = mysqli_query($koneksi, "INSERT INTO tb_admin SET username='$username', password='$password', nama='$nama', kontak='$kontak', foto='$nama_file_baru'");
-
 		}
-	}else if (empty($_POST['foto'])) {
+	} else if (empty($_POST['foto'])) {
 		$res = mysqli_query($koneksi, "INSERT INTO tb_admin SET username='$username', password='$password', nama='$nama', kontak='$kontak'");
 	}
-	
 }
 
 function hapus_admin()
@@ -63,7 +61,7 @@ function hapus_admin()
 
 	if ($array['foto'] == "") {
 		return mysqli_query($koneksi, "DELETE FROM tb_admin WHERE id='$id'");
-	}else{
+	} else {
 		unlink("img/$foto");
 		return mysqli_query($koneksi, "DELETE FROM tb_admin WHERE id='$id'");
 	}
@@ -77,7 +75,6 @@ function edit_karyawan()
 	$username = $_POST['username'];
 	$password = md5($_POST['password']);
 	$nama = $_POST['nama'];
-	$tempat_lahir = $_POST['tempat_lahir'];
 	$divisi = $_POST['divisi'];
 	$alamat = $_POST['alamat'];
 	$kontak = $_POST['kontak'];
@@ -89,56 +86,42 @@ function edit_karyawan()
 
 	$hapus_foto = $r['foto'];
 
-		if(isset($_POST['ubahfoto']))
-	{
-		if ($r['foto']=="") 
-		{
-				if ($foto != "") {
-				$allowed_ext = array('png','jpg');
-				$x = explode(".", $foto);
-				$ekstensi = strtolower(end($x));
-				$file_tmp = $_FILES['foto']['tmp_name'];
-				$angka_acak = rand(1,999);
-		   		$nama_file_baru = $angka_acak.'-'.$foto;
-		   		    if (in_array($ekstensi, $allowed_ext) === true) {
-		      			move_uploaded_file($file_tmp, '../admin/img/karyawan/'.$nama_file_baru);
-		      			$result =  mysqli_query($koneksi, "UPDATE tb_karyawan SET nip='$nip', username='$username', password='$password', nama='$nama', tempat_lahir='$tempat_lahir', divisi='$tanggal_lahir', alamat='$alamat', kontak='$kontak', foto='$nama_file_baru' WHERE id='$id'");
-		      			
-		      			
-		    }
-
-
-
-			}
-		}else if ($r['foto']!="") {
+	if (isset($_POST['ubahfoto'])) {
+		if ($r['foto'] == "") {
 			if ($foto != "") {
-				$allowed_ext = array('png','jpg');
+				$allowed_ext = array('png', 'jpg');
 				$x = explode(".", $foto);
 				$ekstensi = strtolower(end($x));
 				$file_tmp = $_FILES['foto']['tmp_name'];
-				$angka_acak = rand(1,999);
-		   		$nama_file_baru = $angka_acak.'-'.$foto;
-		   		    if (in_array($ekstensi, $allowed_ext) === true) {
-		      			move_uploaded_file($file_tmp, '../admin/img/karyawan/'.$nama_file_baru);
-		      			$result =  mysqli_query($koneksi, "UPDATE tb_karyawan SET nip='$nip', username='$username', password='$password', nama='$nama', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', alamat='$alamat', kontak='$kontak', foto='$nama_file_baru' WHERE id='$id'");
-		      			if ($result) {
-		      				unlink("../admin/img/karyawan/$hapus_foto");
-		      			}
-
-		      			
-		    }
-
-
-
+				$angka_acak = rand(1, 999);
+				$nama_file_baru = $angka_acak . '-' . $foto;
+				if (in_array($ekstensi, $allowed_ext) === true) {
+					move_uploaded_file($file_tmp, '../admin/img/karyawan/' . $nama_file_baru);
+					$result =  mysqli_query($koneksi, "UPDATE tb_karyawan SET nip='$nip', username='$username', password='$password', nama='$nama', divisi='$divisi', divisi='$tanggal_lahir', alamat='$alamat', kontak='$kontak', foto='$nama_file_baru' WHERE id='$id'");
+				}
 			}
-		}	
+		} else if ($r['foto'] != "") {
+			if ($foto != "") {
+				$allowed_ext = array('png', 'jpg');
+				$x = explode(".", $foto);
+				$ekstensi = strtolower(end($x));
+				$file_tmp = $_FILES['foto']['tmp_name'];
+				$angka_acak = rand(1, 999);
+				$nama_file_baru = $angka_acak . '-' . $foto;
+				if (in_array($ekstensi, $allowed_ext) === true) {
+					move_uploaded_file($file_tmp, '../admin/img/karyawan/' . $nama_file_baru);
+					$result =  mysqli_query($koneksi, "UPDATE tb_karyawan SET nip='$nip', username='$username', password='$password', nama='$nama', divisi='$divisi', tanggal_lahir='$tanggal_lahir', alamat='$alamat', kontak='$kontak', foto='$nama_file_baru' WHERE id='$id'");
+					if ($result) {
+						unlink("../admin/img/karyawan/$hapus_foto");
+					}
+				}
+			}
+		}
 	}
 
 	if (empty($_POST['foto'])) {
-		return  mysqli_query($koneksi, "UPDATE tb_karyawan SET nip='$nip', username='$username', password='$password', nama='$nama', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', alamat='$alamat', kontak='$kontak' WHERE id='$id'");
+		return  mysqli_query($koneksi, "UPDATE tb_karyawan SET nip='$nip', username='$username', password='$password', nama='$nama', divisi='$divisi', tanggal_lahir='$tanggal_lahir', alamat='$alamat', kontak='$kontak' WHERE id='$id'");
 	}
-
-
 }
 
 // -------------------------------------------------ABSEN SECTION----------------------------------------------------------------\\
@@ -147,17 +130,17 @@ function simpan_absen()
 	global $koneksi;
 	$nip = $_POST['nip'];
 	$nama = $_POST['nama'];
-	$tanggal = $_POST['tanggal'];
-	$jam = $_POST['jam'];
+	$tanggal = date('Y-m-d');
+	$jam = date('H:i:s');
 	$jam2 = $_POST['jam2'];
 
 	// Validasi tanggal
-	$select = mysqli_query($koneksi, "SELECT * FROM tb_absen WHERE nip='$nip' AND tanggal='$tanggal'");
+	$select = mysqli_query($koneksi, "SELECT * FROM tb_absen WHERE nama='$nama' AND tanggal='$tanggal'");
 	$row = mysqli_num_rows($select);
 
 	if ($row) {
 		echo '<script>alert("anda sudah absen untuk hari ini, absen lagi besok!")</script>';
-	}else{
+	} else {
 		echo '<script>alert("terima kasih")</script>';
 		$res =  mysqli_query($koneksi, "INSERT INTO tb_absen SET nip='$nip', nama='$nama', tanggal='$tanggal', jam='$jam', jam2='$jam2'");
 	}
@@ -170,32 +153,28 @@ function simpan_keterangan()
 	$nama = $_POST['nama'];
 	$keterangan = $_POST['keterangan'];
 	$alasan = $_POST['alasan'];
-	$tanggal = $_POST['tanggal'];
-	$jam = $_POST['jam'];
+	$tanggal = date('Y-m-d');
+	$jam = date('H:i:s');
 	$foto = $_FILES['foto']['name'];
 
 	$res = mysqli_query($koneksi, "INSERT INTO tb_keterangan SET nip='$nip', nama='$nama', keterangan='$keterangan', alasan='$alasan', tanggal='$tanggal', jam='$jam'");
 
-	if ($foto!= "") {
-		$allowed_ext = array('png','jpg');
+	if ($foto != "") {
+		$allowed_ext = array('png', 'jpg');
 		$x = explode(".", $foto);
 		$ext = strtolower(end($x));
 		$file_tmp = $_FILES['foto']['tmp_name'];
-		$angka_acak = rand(1,999);
-		$nama_file_baru = $angka_acak.'-'.$foto;
-		if (in_array($ext, $allowed_ext)===true) {
-			move_uploaded_file($file_tmp, '../admin/img/keterangan/'.$nama_file_baru);
+		$angka_acak = rand(1, 999);
+		$nama_file_baru = $angka_acak . '-' . $foto;
+		if (in_array($ext, $allowed_ext) === true) {
+			move_uploaded_file($file_tmp, '../admin/img/keterangan/' . $nama_file_baru);
 			echo '<script>alert("terima kasih, anda sudah memberi keterangan")</script>';
 			$res = mysqli_query($koneksi, "INSERT INTO tb_keterangan SET nip='$nip', nama='$nama', keterangan='$keterangan', alasan='$alasan', tanggal='$tanggal', jam='$jam', foto='$nama_file_baru'");
-
 		}
 	}
 }
 // ----------------------------------------FUNCTION URL, KEEP IT BELOW!!------------------------------------------------------------------
 function url()
 {
-	return $url = "http://192.168.100.59/absenapel/assets/";
-
+	return $url = "//localhost/absenapel/assets/";
 }
-
- ?>

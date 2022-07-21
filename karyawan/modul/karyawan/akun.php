@@ -47,7 +47,7 @@
 					</tr>
 					<tr>
 						<td>Divisi : </td>
-						<td><?=$adm['tempat_lahir'];?></td>
+						<td><?=$adm['divisi'];?></td>
 					</tr>
           <tr>
 						<td>Kontak : </td>
@@ -105,7 +105,7 @@
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
-                  <b><p class="modal-title" id="edit-profil<?= $adm['id'] ?>" style="text-align: center; font-size: 18px;">Edit Data Admin</p></b>
+                  <b><p class="modal-title" id="edit-profil<?= $adm['id'] ?>" style="text-align: center; font-size: 18px;">Edit Data Pegawai</p></b>
                 </div>
                 <!-- Modal Body -->
                 <div class="modal-body">
@@ -136,7 +136,7 @@
   </div>
   <div class="form-group">
     <label>Divisi</label>
-    <input type="text" class="form-control" value="<?= $adm['tempat_lahir'];?>" id="exampleInputEmail1" name="divisi" aria-describedby="emailHelp" placeholder="Masukkan divisi">
+    <input type="text" class="form-control" value="<?= $adm['divisi'];?>" id="exampleInputEmail1" name="divisi" aria-describedby="emailHelp" placeholder="Masukkan divisi">
    
   </div>
   <!-- <div class="form-group">
